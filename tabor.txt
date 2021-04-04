@@ -1,0 +1,6 @@
+brutto pociagu:
+300t
+wartość hamująca:
+180t
+liczba wagonów:
+8
