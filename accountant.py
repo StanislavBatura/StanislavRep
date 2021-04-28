@@ -30,6 +30,9 @@ while True:
             a = input("Podaj nazwe: ")
             b = int(input("Podaj iloszc: "))
             c = int(input("Podaj cene: "))
+            if lista_magazyn[a] - b < 0:
+                print(f"w magaz masz {lista_magazyn[a]}, a chcesz spszedac {b}")
+                continue
 
             summ_saldo = summ_saldo + c * b
             if a in lista_magazyn:
@@ -38,8 +41,8 @@ while True:
                 lista_magazyn[a] = b
             lista_operac.append(f"sell: {a}, {b} szt, {c} zl")
 
-        print(lista_magazyn)
-        print(summ_saldo)
+        #print(lista_magazyn)
+        #print(summ_saldo)
 
         if command == "end":
             break
