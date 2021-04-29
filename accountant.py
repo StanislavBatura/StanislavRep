@@ -6,14 +6,18 @@ COMMANDS = ("saldo", "sell", "buy", "end", "magazyn")
 summ_saldo = 1000
 lista_operac = []
 lista_magazyn = {}
+
 while True:
     command = input()
     if command in COMMANDS:
 
         if command == "saldo":
             saldo = int(input("Podaj kwote: "))
+            kom = input("komentarz: ")
+
             summ_saldo += saldo
             print(summ_saldo)
+            lista_operac.append(f"saldo: {summ_saldo}, komentarz: {kom}")
 
         if command == "buy":
             a = input("Podaj nazwe: ")
