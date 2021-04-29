@@ -11,6 +11,8 @@ while True:
     if command in COMMANDS:
 
         if command == "saldo":
+            saldo = int(input("Podaj kwote: "))
+            summ_saldo += saldo
             print(summ_saldo)
 
         if command == "buy":
