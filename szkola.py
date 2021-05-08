@@ -1,10 +1,11 @@
-COMMANDS = ("wychowawca", "nauczyciel", "uczen", "end")
+COMMANDS = ("wychowawca", "nauczyciel", "uczen", "end", "a")
 
-
+clas_w = []
 list_wychowawca = {}
 list_nauczyciel = {}
 list_uczen = {}
-list_clas = {}
+list_clas = []
+
 while True:
     print("1) wychowawca\n2) nauczyciel\n3) uczen\n4) end")
     commands = input()
@@ -23,30 +24,36 @@ while True:
                 if not uczen:
                     break
 
-    while True:
-        commands = input()
-        if commands in COMMANDS:
             if commands == "nauczyciel":
                 nauczyciel = input("Podaj imie: ")
                 przedmiot = input("Nazwa przedmiotu: ")
-                clasa_n = input("Nazwa klasy: ")
-                if not clasa_n:
-                    break
-                print(list_clas)
-
-                if clasa_n in list_clas:
-                    list_clas += clasa_n
+                if nauczyciel in list_nauczyciel:
+                    list_nauczyciel[nauczyciel] += przedmiot
                 else:
-                    list_clas = clasa_n
+                    list_nauczyciel[nauczyciel] = przedmiot
+                print(list_nauczyciel)
+                while True:
+                    clasa_n = input("Nazwa klasy: ")
+                    if not clasa_n:
+                        break
 
+                    if clasa_n in list_clas:
+                        list_clas += clasa_n
+                    else:
+                        list_clas = clasa_n
 
-                print(list_clas)
-       # else:
-        #    list_nauczyciel[nauczyciel] = przedmiot
-        print(list_nauczyciel)
+                    print(list_nauczyciel)
+                    print(list_clas)
 
-        if commands == "wychowawca":
-            pass
+            if commands == "wychowawca":
+                wychowawca = input("Podaj imie: ")
+                clasa_w = (input("Nazwa klasy: "))
+                clas_w.append((clasa_w))
+                if wychowawca in list_wychowawca:
+                    list_wychowawca[wychowawca] += clas_w
+                else:
+                    list_wychowawca[wychowawca] = clas_w
+            print(list_wychowawca)
 
         if commands == "end":
             break
