@@ -103,30 +103,17 @@ while True:
     if command == "nazwa nauczyciela":
         naucz = input("Podaj imie nauczyciela: ")
         if naucz in lista_nauczycieli.keys():
-            #print(f'Klasy wychowacy {naucz} to: {lista_nauczycieli[naucz]}')
-            #print(lista_nauczycieli[naucz])
-            for key, klasy in lista_nauczycieli.items():
-                print(klasy)
-                for i, klas in klasy.items():
-
-                    print(klas)
-                    for a, b in lista_wychowawcy.items():
-                        print(b)
-                        if b in lista_wychowawcy.items():
-                            print(lista_wychowawcy)
-                            #print(lista_wychowawcy[b])
-                    #print(f'Wychowawca {wych} uczy
-                    # : {uczniowie} z klasy {klasa}')
+            for klasy in lista_nauczycieli[naucz]["klasy"]:
+                for a, b in lista_wychowawcy.items():
+                    if klasy in b:
+                        print(a)
 
     if command == "nazwa ucznia":
         ucz = input("Podaj imie ucznia: ")
-        if ucz in lista_uczni.items():
-            #print(f'Klasy wychowacy {naucz} to: {lista_nauczycieli[naucz]}')
-            print(lista_uczni[ucz])
-            for key, klasy in ucz.items():
-                print(key)  
-                print(klasy)
-
-               # for i, klas in klasy.items():
-               #     if klas in lista_wychowawcy[wych]:
-               #         print(lista_wychowawcy[wych])
+        for klasa_u, imie in lista_uczni.items():
+            print(klasa_u)
+            for naucz_imie, klasa in lista_nauczycieli.items():
+                for p in klasa["klasy"]:
+                    if klasa_u == p:
+                        print(naucz_imie)
+                        print(klasa["przedmiot"])
